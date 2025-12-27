@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreeImageTools.in - 24+ Free Professional Image Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ====== ORANGE THEME CSS ====== */
+        :root {
+            --orange-primary: #FF6B35;
+            --orange-light: #FFE5D9;
+            --orange-dark: #E55A2B;
+            --gray-dark: #1F2937;
+            --gray-light: #F9FAFB;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: linear-gradient(to bottom, #FFFFFF, #FFF7F5);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* ====== HEADER ====== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #FFE5D9;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--orange-primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gray-dark);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--orange-primary);
+        }
+        
+        .cta-button {
+            background: var(--orange-primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: var(--orange-dark);
+        }
+        
+        /* ====== HERO SECTION ====== */
+        .hero {
+            padding: 140px 20px 80px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--orange-primary);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* ====== UPLOAD AREA ====== */
+        .upload-area {
+            border: 3px dashed #FFB347;
+            border-radius: 20px;
+            padding: 60px 40px;
+            background: var(--orange-light);
+            margin: 40px auto;
+            max-width: 800px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .upload-area:hover {
+            border-color: var(--orange-primary);
+            background: #FFD9C9;
+        }
+        
+        .upload-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+            color: var(--orange-primary);
+        }
+        
+        /* ====== TOOLS GRID ====== */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--gray-dark);
+            margin: 60px 0 40px;
+        }
+        
+        .section-title span {
+            color: var(--orange-primary);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .tool-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--gray-dark);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 107, 53, 0.15);
+            border-color: var(--orange-primary);
+        }
+        
+        .tool-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .tool-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .tool-category {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        /* Category Colors */
+        .category-ai { background: #F3E8FF; color: #7C3AED; }
+        .category-convert { background: #FFEDD5; color: #EA580C; }
+        .category-edit { background: #DCFCE7; color: #16A34A; }
+        .category-optimize { background: #DBEAFE; color: #1D4ED8; }
+        
+        /* ====== FEATURES ====== */
+        .features {
+            background: linear-gradient(135deg, #FFF7F5 0%, #FFEDE6 100%);
+            border-radius: 25px;
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 60px auto;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: var(--orange-primary);
+            margin-bottom: 15px;
+        }
+        
+        /* ====== STATS ====== */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--orange-primary);
+            line-height: 1;
+        }
+        
+        /* ====== SECTIONS ====== */
+        .section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* ====== FOOTER ====== */
+        footer {
+            background: var(--gray-dark);
+            color: white;
+            padding: 60px 20px 30px;
+            margin-top: 60px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-column a {
+            color: #D1D5DB;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--orange-primary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            font-size: 20px;
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #374151;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+        
+        /* ====== RESPONSIVE ====== */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.2rem; }
+            .nav-menu { display: none; }
+            .tools-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 480px) {
+            .tools-grid { grid-template-columns: 1fr; }
+            .hero { padding: 120px 15px 40px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 🔴 HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">
+                freeimagetools<span>.in</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#home">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy</a>
+            </nav>
+            
+            <button class="cta-button">Start Free</button>
+        </div>
+    </header>
+
+    <!-- 🔴 HERO SECTION -->
+    <section id="home" class="hero">
+        <h1><span>24+</span> Free Professional Image Tools</h1>
+        <p>India's Most Complete Online Image Toolkit. 100% Free • No Watermarks • Instant Processing</p>
+        
+        <div class="upload-area">
+            <div class="upload-icon">📁</div>
+            <h3 style="font-size: 1.8rem; margin-bottom: 10px;">Drag & Drop Images Here</h3>
+            <p style="color: #666; margin-bottom: 25px;">Supports JPG, PNG, WEBP, GIF up to 50MB</p>
+            <button class="cta-button">Or Click to Upload</button>
+        </div>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px;">
+            <span style="background: #DCFCE7; color: #166534; padding: 10px 20px; border-radius: 50px;">✅ No Registration</span>
+            <span style="background: #DBEAFE; color: #1E40AF; padding: 10px 20px; border-radius: 50px;">⚡ Instant Processing</span>
+            <span style="background: #FEF3C7; color: #92400E; padding: 10px 20px; border-radius: 50px;">🔒 Privacy First</span>
+            <span style="background: #E0E7FF; color: #3730A3; padding: 10px 20px; border-radius: 50px;">📱 Mobile Friendly</span>
+        </div>
+    </section>
+
+    <!-- 🔴 ALL 24 TOOLS GRID -->
+    <section id="tools" style="padding: 40px 20px;">
+        <h2 class="section-title"><span>All</span> Image Tools</h2>
+        <p style="text-align: center; color: #666; font-size: 1.1rem; margin-bottom: 40px;">
+            Click any tool to start using instantly. No registration required.
+        </p>
+        
+        <div class="tools-grid">
+            <!-- Row 1: AI Tools -->
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🤖</div>
+                <div class="tool-name">AI Image Generator</div>
+                <span class="tool-category category-ai">AI TOOLS</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">✂️</div>
+                <div class="tool-name">Remove Background</div>
+                <span class="tool-category category-ai">AI TOOLS</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">📝</div>
+                <div class="tool-name">Image to Text</div>
+                <span class="tool-category category-ai">EXTRACT</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🔍</div>
+                <div class="tool-name">Reverse Image Search</div>
+                <span class="tool-category category-ai">SEARCH</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🔄</div>
+                <div class="tool-name">Image Converter</div>
+                <span class="tool-category category-convert">CONVERT</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">📏</div>
+                <div class="tool-name">Resize Image</div>
+                <span class="tool-category category-edit">EDIT</span>
+            </a>
+            
+            <!-- Row 2: More Tools -->
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🗜️</div>
+                <div class="tool-name">Compress Image</div>
+                <span class="tool-category category-optimize">OPTIMIZE</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🎨</div>
+                <div class="tool-name">AI Image Editor</div>
+                <span class="tool-category category-ai">AI TOOLS</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🔎</div>
+                <div class="tool-name">Duplicate Finder</div>
+                <span class="tool-category category-ai">SEARCH</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">📊</div>
+                <div class="tool-name">EXIF Data Viewer</div>
+                <span class="tool-category category-ai">EXTRACT</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🖼️</div>
+                <div class="tool-name">Image Search Engine</div>
+                <span class="tool-category category-ai">SEARCH</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🎭</div>
+                <div class="tool-name">Bing Image Creator</div>
+                <span class="tool-category category-ai">AI TOOLS</span>
+            </a>
+            
+            <!-- Row 3: More Tools -->
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🌅</div>
+                <div class="tool-name">Image Enhancer</div>
+                <span class="tool-category category-optimize">OPTIMIZE</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🎯</div>
+                <div class="tool-name">Watermark Remover</div>
+                <span class="tool-category category-optimize">OPTIMIZE</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">📐</div>
+                <div class="tool-name">Crop Image</div>
+                <span class="tool-category category-edit">EDIT</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🔄</div>
+                <div class="tool-name">Rotate Image</div>
+                <span class="tool-category category-edit">EDIT</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🖼️</div>
+                <div class="tool-name">PDF to Image</div>
+                <span class="tool-category category-convert">CONVERT</span>
+            </a>
+            
+            <!-- Row 4: More Tools -->
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🌈</div>
+                <div class="tool-name">Color Corrector</div>
+                <span class="tool-category category-optimize">OPTIMIZE</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">📈</div>
+                <div class="tool-name">AI Image Upscaler</div>
+                <span class="tool-category category-ai">AI TOOLS</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🎨</div>
+                <div class="tool-name">Palette Generator</div>
+                <span class="tool-category category-ai">EXTRACT</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">🔄</div>
+                <div class="tool-name">HEIC to JPG</div>
+                <span class="tool-category category-convert">CONVERT</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">😊</div>
+                <div class="tool-name">Face Detection</div>
+                <span class="tool-category category-ai">SEARCH</span>
+            </a>
+            
+            <a href="#" class="tool-card">
+                <div class="tool-icon">😂</div>
+                <div class="tool-name">Meme Generator</div>
+                <span class="tool-category category-edit">EDIT</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 🔴 FEATURES SECTION -->
+    <section id="features" class="features">
+        <h2 class="section-title">Why Choose <span>FreeImageTools.in</span>?</h2>
+        
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3>Lightning Fast</h3>
+                <p>Process images in less than 2 seconds with our optimized servers.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h3>Privacy First</h3>
+                <p>Files automatically deleted after 1 hour. We don't store your data.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">📱</div>
+                <h3>Mobile Friendly</h3>
+                <p>Works perfectly on all devices - phone, tablet, and desktop.</p>
+            </div>
+            
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h3>Batch Processing</h3>
+                <p>Upload and process multiple images at the same time.</p>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div>
+                <div class="stat-number">50,000+</div>
+                <p style="color: #666;">Happy Users</p>
+            </div>
+            <div>
+                <div class="stat-number">1M+</div>
+                <p style="color: #666;">Images Processed</p>
+            </div>
+            <div>
+                <div class="stat-number">99.9%</div>
+                <p style="color: #666;">Uptime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔴 ABOUT SECTION -->
+    <section id="about" class="section">
+        <h2 class="section-title">About <span>FreeImageTools.in</span></h2>
+        <div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+            <p style="font-size: 1.1rem; margin-bottom: 20px; color: #555;">
+                We're building <strong style="color: var(--orange-primary);">India's most comprehensive FREE image editing platform</strong>. 
+                Our mission is to provide professional-grade tools to everyone - from students to business owners.
+            </p>
+            <p style="font-size: 1.1rem; margin-bottom: 20px; color: #555;">
+                In today's digital world, everyone needs to edit images - for social media, business, 
+                education, or personal use. But professional software is expensive and complex.
+            </p>
+            <p style="font-size: 1.1rem; margin-bottom: 20px; color: #555;">
+                That's why we created FreeImageTools.in - to give everyone access to powerful image 
+                editing tools, completely free and easy to use.
+            </p>
+            <p style="font-size: 1.2rem; font-weight: 700; color: var(--orange-primary); margin-top: 30px;">
+                Our Team: 3 passionate developers making image editing accessible to all.
+            </p>
+        </div>
+    </section>
+
+    <!-- 🔴 FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <!-- Column 1 -->
+            <div class="footer-column">
+                <div class="logo" style="color: white; margin-bottom: 20px;">freeimagetools.in</div>
+                <p style="color: #D1D5DB; margin-bottom: 20px;">Free Professional Image Tools for Everyone</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            
+            <!-- Column 2 -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy</a>
+            </div>
+            
+            <!-- Column 3 -->
+            <div class="footer-column">
+                <h3>Popular Tools</h3>
+                <a href="#">AI Image Generator</a>
+                <a href="#">Remove Background</a>
+                <a href="#">Image Converter</a>
+                <a href="#">Compress Image</a>
+                <a href="#">Resize Image</a>
+                <a href="#">Watermark Remover</a>
+            </div>
+            
+            <!-- Column 4 -->
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">DMCA</a>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2024 FreeImageTools.in. All rights reserved.</p>
+            <p style="margin-top: 10px; color: var(--orange-primary); font-weight: 600;">
+                Made with ❤️ in India for the world
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Upload area click
+        document.querySelector('.upload-area').addEventListener('click', function() {
+            alert('File upload dialog would open here. This is just a preview.');
+        });
+        
+        // Tool card clicks
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const toolName = this.querySelector('.tool-name').textContent;
+                alert(`Opening ${toolName} tool... This is just a preview.`);
+            });
+        });
+    </script>
+</body>
+</html>
