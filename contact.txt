@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - FreeImageTools.in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ====== ORANGE THEME CSS ====== */
+:root {
+--orange-primary: #FF6B35;
+--orange-light: #FFE5D9;
+--orange-dark: #E55A2B;
+--gray-dark: #1F2937;
+--gray-light: #F9FAFB;
+--white: #FFFFFF;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+background: linear-gradient(to bottom, #FFFFFF, #FFF7F5);
+color: #333;
+line-height: 1.6;
+min-height: 100vh;
+}
+
+/* ====== HEADER ====== */
+header {
+position: fixed;
+top: 0;
+width: 100%;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid #FFE5D9;
+z-index: 1000;
+padding: 0 20px;
+}
+
+.header-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 70px;
+}
+
+.logo {
+font-size: 28px;
+font-weight: 800;
+color: var(--orange-primary);
+text-decoration: none;
+}
+
+.logo span {
+color: var(--gray-dark);
+}
+
+.nav-menu {
+display: flex;
+gap: 30px;
+}
+
+.nav-menu a {
+text-decoration: none;
+color: var(--gray-dark);
+font-weight: 600;
+font-size: 16px;
+transition: color 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+color: var(--orange-primary);
+}
+
+.mobile-menu-btn {
+display: none;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+color: var(--orange-primary);
+}
+
+.cta-button {
+background: var(--orange-primary);
+color: white;
+border: none;
+padding: 12px 28px;
+border-radius: 50px;
+font-weight: 700;
+font-size: 16px;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.cta-button:hover {
+background: var(--orange-dark);
+}
+
+/* ====== HERO SECTION ====== */
+.hero {
+padding: 140px 20px 60px;
+text-align: center;
+max-width: 1000px;
+margin: 0 auto;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+color: var(--gray-dark);
+margin-bottom: 20px;
+line-height: 1.2;
+}
+
+.hero h1 span {
+color: var(--orange-primary);
+}
+
+.hero p {
+font-size: 1.3rem;
+color: #666;
+margin-bottom: 40px;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* ====== PAGE CONTENT ====== */
+.page-content {
+padding: 70px 20px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.content-box {
+background: white;
+padding: 50px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+margin-bottom: 40px;
+}
+
+.content-box h2 {
+color: var(--orange-primary);
+margin-bottom: 20px;
+font-size: 2.2rem;
+}
+
+.content-box h3 {
+color: var(--gray-dark);
+margin: 25px 0 15px;
+font-size: 1.5rem;
+}
+
+.content-box p {
+margin-bottom: 20px;
+line-height: 1.8;
+color: #555;
+font-size: 1.1rem;
+}
+
+/* ====== CONTACT FORM ====== */
+.contact-form-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 50px;
+margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+.contact-form-container {
+grid-template-columns: 1fr;
+}
+}
+
+.form-box {
+background: var(--orange-light);
+padding: 40px;
+border-radius: 15px;
+}
+
+.form-group {
+margin-bottom: 25px;
+}
+
+.form-group label {
+display: block;
+margin-bottom: 8px;
+font-weight: 600;
+color: var(--gray-dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+width: 100%;
+padding: 14px 18px;
+border: 2px solid #E5E7EB;
+border-radius: 12px;
+font-size: 16px;
+transition: all 0.3s;
+background: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+border-color: var(--orange-primary);
+outline: none;
+box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-group textarea {
+min-height: 180px;
+resize: vertical;
+}
+
+/* ====== CONTACT INFO ====== */
+.contact-info-box {
+background: linear-gradient(135deg, var(--orange-light) 0%, #FFD9C9 100%);
+padding: 40px;
+border-radius: 15px;
+}
+
+.contact-item {
+display: flex;
+align-items: flex-start;
+margin-bottom: 30px;
+padding-bottom: 20px;
+border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.contact-icon {
+background: white;
+width: 50px;
+height: 50px;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 20px;
+color: var(--orange-primary);
+font-size: 22px;
+flex-shrink: 0;
+}
+
+.contact-details h4 {
+color: var(--gray-dark);
+margin-bottom: 5px;
+font-size: 1.2rem;
+}
+
+.contact-details p {
+color: #555;
+margin-bottom: 5px;
+}
+
+/* ====== FAQ SECTION ====== */
+.faq-section {
+margin-top: 60px;
+}
+
+.faq-item {
+background: white;
+border-radius: 12px;
+margin-bottom: 15px;
+overflow: hidden;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+border: 1px solid #E5E7EB;
+}
+
+.faq-question {
+padding: 20px 25px;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-weight: 600;
+color: var(--gray-dark);
+font-size: 1.1rem;
+}
+
+.faq-answer {
+padding: 0 25px;
+max-height: 0;
+overflow: hidden;
+transition: all 0.3s ease;
+color: #555;
+}
+
+.faq-answer.active {
+padding: 20px 25px;
+max-height: 500px;
+}
+
+.faq-toggle {
+font-size: 20px;
+color: var(--orange-primary);
+transition: transform 0.3s;
+}
+
+/* ====== FOOTER ====== */
+footer {
+background: var(--gray-dark);
+color: white;
+padding: 60px 20px 30px;
+margin-top: 60px;
+}
+
+.footer-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 40px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.footer-column h3 {
+font-size: 1.3rem;
+margin-bottom: 20px;
+color: white;
+}
+
+.footer-column a {
+color: #D1D5DB;
+text-decoration: none;
+display: block;
+margin-bottom: 12px;
+transition: color 0.3s;
+}
+
+.footer-column a:hover {
+color: var(--orange-primary);
+}
+
+.social-icons {
+display: flex;
+gap: 15px;
+margin-top: 20px;
+}
+
+.social-icons a {
+font-size: 20px;
+background: rgba(255,255,255,0.1);
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.copyright {
+text-align: center;
+margin-top: 50px;
+padding-top: 30px;
+border-top: 1px solid #374151;
+color: #9CA3AF;
+font-size: 14px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+.hero h1 { font-size: 2.5rem; }
+.nav-menu {
+display: none;
+position: absolute;
+top: 70px;
+left: 0;
+width: 100%;
+background: white;
+flex-direction: column;
+padding: 20px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+border-top: 1px solid #FFE5D9;
+}
+.nav-menu.active {
+display: flex;
+}
+.mobile-menu-btn {
+display: block;
+}
+.content-box {
+padding: 30px 20px;
+}
+.contact-form-container {
+gap: 30px;
+}
+.form-box, .contact-info-box {
+padding: 30px 20px;
+}
+}
+
+@media (max-width: 480px) {
+.hero { padding: 120px 15px 40px; }
+.hero h1 { font-size: 2rem; }
+.content-box { padding: 25px 15px; }
+}
+</style>
+</head>
+<body>
+<!-- 🔴 HEADER -->
+<header>
+<div class="header-container">
+<a href="index.html" class="logo">
+freeimagetools<span>.in</span>
+</a>
+
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+<i class="fas fa-bars"></i>
+</button>
+
+<nav class="nav-menu">
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="features.html">Features</a>
+<a href="about.html">About</a>
+<a href="contact.html" class="active">Contact</a>
+<a href="privacy.html">Privacy</a>
+<button class="cta-button">Start Free</button>
+</nav>
+</div>
+</header>
+
+<!-- 🔴 HERO SECTION -->
+<section class="hero">
+<h1>Contact <span>Us</span></h1>
+<p>Have questions, suggestions, or need support? We're here to help you 24/7!</p>
+</section>
+
+<!-- 🔴 MAIN CONTENT -->
+<div class="page-content">
+<!-- Contact Form & Info -->
+<div class="content-box">
+<h2>Get in Touch</h2>
+<p>Fill out the form below and we'll get back to you within 24 hours.</p>
+
+<div class="contact-form-container">
+<!-- Contact Form -->
+<div class="form-box">
+<form id="contactForm">
+<div class="form-group">
+<label for="name">Full Name *</label>
+<input type="text" id="name" placeholder="Enter your name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Email Address *</label>
+<input type="email" id="email" placeholder="Enter your email" required>
+</div>
+
+<div class="form-group">
+<label for="subject">Subject</label>
+<select id="subject">
+<option value="">Select a subject</option>
+<option value="support">Technical Support</option>
+<option value="feature">Feature Request</option>
+<option value="bug">Report a Bug</option>
+<option value="business">Business Inquiry</option>
+<option value="partnership">Partnership</option>
+<option value="other">Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="message">Message *</label>
+<textarea id="message" placeholder="How can we help you?" required></textarea>
+</div>
+
+<button type="submit" class="cta-button" style="width: 100%; padding: 16px;">
+<i class="fas fa-paper-plane"></i> Send Message
+</button>
+</form>
+</div>
+
+<!-- Contact Information -->
+<div class="contact-info-box">
+<h3 style="color: var(--gray-dark); margin-top: 0; margin-bottom: 30px;">Contact Information</h3>
+
+<div class="contact-item">
+<div class="contact-icon">
+<i class="fas fa-envelope"></i>
+</div>
+<div class="contact-details">
+<h4>Email Support</h4>
+<p>support@freeimagetools.in</p>
+<p style="font-size: 0.9rem; color: #666;">Response time: 24 hours</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">
+<i class="fas fa-phone"></i>
+</div>
+<div class="contact-details">
+<h4>Phone Support</h4>
+<p>+91 98765 43210</p>
+<p style="font-size: 0.9rem; color: #666;">Mon-Fri, 10AM-6PM IST</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">
+<i class="fas fa-map-marker-alt"></i>
+</div>
+<div class="contact-details">
+<h4>Office Address</h4>
+<p>FreeImageTools.in</p>
+<p>Mumbai, Maharashtra 400001</p>
+<p>India</p>
+</div>
+</div>
+
+<div class="contact-item">
+<div class="contact-icon">
+<i class="fas fa-clock"></i>
+</div>
+<div class="contact-details">
+<h4>Business Hours</h4>
+<p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+<p>Saturday: 10:00 AM - 4:00 PM</p>
+<p>Sunday: Closed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- FAQ Section -->
+<div class="content-box faq-section">
+<h2>Frequently Asked Questions</h2>
+<p>Find quick answers to common questions below.</p>
+
+<div class="faq-list">
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>How long does it take to get a response?</span>
+<span class="faq-toggle">+</span>
+</div>
+<div class="faq-answer">
+<p>We typically respond to all emails within 24 hours on business days. For urgent issues, please mention "URGENT" in your subject line.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>Do you offer enterprise solutions?</span>
+<span class="faq-toggle">+</span>
+</div>
+<div class="faq-answer">
+<p>Yes! We offer custom enterprise solutions with advanced features, dedicated support, and API access. Contact us at enterprise@freeimagetools.in for more information.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>Can I suggest new features or tools?</span>
+<span class="faq-toggle">+</span>
+</div>
+<div class="faq-answer">
+<p>Absolutely! We love hearing from our users. Use the feature request option in the contact form, or email us directly at suggestions@freeimagetools.in.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>Do you offer technical support for your tools?</span>
+<span class="faq-toggle">+</span>
+</div>
+<div class="faq-answer">
+<p>Yes, we offer free technical support for all our tools. If you're experiencing any issues, please contact our support team with details about the problem.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question" onclick="toggleFAQ(this)">
+<span>Are you hiring?</span>
+<span class="faq-toggle">+</span>
+</div>
+<div class="faq-answer">
+<p>We're always looking for talented people! Check our careers page or send your resume to careers@freeimagetools.in.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Social Media -->
+<div class="content-box">
+<h2>Connect With Us</h2>
+<p>Follow us on social media for updates, tips, and community discussions.</p>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 30px;">
+<a href="#" style="flex: 1; min-width: 200px; text-decoration: none;">
+<div style="background: linear-gradient(45deg, #1DA1F2, #0d8bd9); color: white; padding: 25px; border-radius: 15px; text-align: center;">
+<i class="fab fa-twitter" style="font-size: 40px; margin-bottom: 15px;"></i>
+<h3>Twitter</h3>
+<p>@freeimagetools</p>
+</div>
+</a>
+
+<a href="#" style="flex: 1; min-width: 200px; text-decoration: none;">
+<div style="background: linear-gradient(45deg, #E1306C, #C13584); color: white; padding: 25px; border-radius: 15px; text-align: center;">
+<i class="fab fa-instagram" style="font-size: 40px; margin-bottom: 15px;"></i>
+<h3>Instagram</h3>
+<p>@freeimagetools</p>
+</div>
+</a>
+
+<a href="#" style="flex: 1; min-width: 200px; text-decoration: none;">
+<div style="background: linear-gradient(45deg, #FF0000, #CC0000); color: white; padding: 25px; border-radius: 15px; text-align: center;">
+<i class="fab fa-youtube" style="font-size: 40px; margin-bottom: 15px;"></i>
+<h3>YouTube</h3>
+<p>FreeImageTools Tutorials</p>
+</div>
+</a>
+
+<a href="#" style="flex: 1; min-width: 200px; text-decoration: none;">
+<div style="background: linear-gradient(45deg, #333, #000); color: white; padding: 25px; border-radius: 15px; text-align: center;">
+<i class="fab fa-github" style="font-size: 40px; margin-bottom: 15px;"></i>
+<h3>GitHub</h3>
+<p>Open Source Projects</p>
+</div>
+</a>
+</div>
+</div>
+</div>
+
+<!-- 🔴 FOOTER -->
+<footer>
+<div class="footer-grid">
+<!-- Column 1 -->
+<div class="footer-column">
+<div class="logo" style="color: white; margin-bottom: 20px;">freeimagetools.in</div>
+<p style="color: #D1D5DB; margin-bottom: 20px;">Free Professional Image Tools for Everyone</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+
+<!-- Column 2 -->
+<div class="footer-column">
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="features.html">Features</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+</div>
+
+<!-- Column 3 -->
+<div class="footer-column">
+<h3>Popular Tools</h3>
+<a href="#">AI Image Generator</a>
+<a href="#">Remove Background</a>
+<a href="#">Image Converter</a>
+<a href="#">Compress Image</a>
+<a href="#">Resize Image</a>
+<a href="#">Watermark Remover</a>
+</div>
+
+<!-- Column 4 -->
+<div class="footer-column">
+<h3>Legal</h3>
+<a href="privacy.html">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Cookie Policy</a>
+<a href="#">DMCA</a>
+<a href="#">Refund Policy</a>
+</div>
+</div>
+
+<div class="copyright">
+<p>© 2024 FreeImageTools.in. All rights reserved.</p>
+<p style="margin-top: 10px; color: var(--orange-primary); font-weight: 600;">
+Made with ❤️ in India for the world
+</p>
+</div>
+</footer>
+
+<script>
+// Toggle mobile menu
+function toggleMobileMenu() {
+document.querySelector('.nav-menu').classList.toggle('active');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+const menu = document.querySelector('.nav-menu');
+const menuBtn = document.querySelector('.mobile-menu-btn');
+
+if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+menu.classList.remove('active');
+}
+});
+
+// FAQ Toggle
+function toggleFAQ(element) {
+const answer = element.nextElementSibling;
+const toggle = element.querySelector('.faq-toggle');
+
+answer.classList.toggle('active');
+toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+}
+
+// Contact Form Submission
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+e.preventDefault();
+
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const subject = document.getElementById('subject').value;
+const message = document.getElementById('message').value;
+
+if (!name || !email || !message) {
+alert('Please fill in all required fields.');
+return;
+}
+
+// Show success message
+alert(`Thank you ${name}! Your message has been sent successfully.\n\nWe'll respond to you at ${email} within 24 hours.\n\nSubject: ${subject || 'General Inquiry'}`);
+
+// Reset form
+document.getElementById('contactForm').reset();
+});
+</script>
+</body>
+</html>

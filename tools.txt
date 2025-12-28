@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Tools - FreeImageTools.in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ====== ORANGE THEME CSS ====== */
+:root {
+--orange-primary: #FF6B35;
+--orange-light: #FFE5D9;
+--orange-dark: #E55A2B;
+--gray-dark: #1F2937;
+--gray-light: #F9FAFB;
+--white: #FFFFFF;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+background: linear-gradient(to bottom, #FFFFFF, #FFF7F5);
+color: #333;
+line-height: 1.6;
+min-height: 100vh;
+}
+
+/* ====== HEADER ====== */
+header {
+position: fixed;
+top: 0;
+width: 100%;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid #FFE5D9;
+z-index: 1000;
+padding: 0 20px;
+}
+
+.header-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 70px;
+}
+
+.logo {
+font-size: 28px;
+font-weight: 800;
+color: var(--orange-primary);
+text-decoration: none;
+}
+
+.logo span {
+color: var(--gray-dark);
+}
+
+.nav-menu {
+display: flex;
+gap: 30px;
+}
+
+.nav-menu a {
+text-decoration: none;
+color: var(--gray-dark);
+font-weight: 600;
+font-size: 16px;
+transition: color 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+color: var(--orange-primary);
+}
+
+.mobile-menu-btn {
+display: none;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+color: var(--orange-primary);
+}
+
+.cta-button {
+background: var(--orange-primary);
+color: white;
+border: none;
+padding: 12px 28px;
+border-radius: 50px;
+font-weight: 700;
+font-size: 16px;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.cta-button:hover {
+background: var(--orange-dark);
+}
+
+/* ====== HERO SECTION ====== */
+.hero {
+padding: 140px 20px 60px;
+text-align: center;
+max-width: 1000px;
+margin: 0 auto;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+color: var(--gray-dark);
+margin-bottom: 20px;
+line-height: 1.2;
+}
+
+.hero h1 span {
+color: var(--orange-primary);
+}
+
+.hero p {
+font-size: 1.3rem;
+color: #666;
+margin-bottom: 40px;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* ====== PAGE CONTENT ====== */
+.page-content {
+padding: 70px 20px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+/* ====== CATEGORY FILTERS ====== */
+.category-filters {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 15px;
+margin: 30px 0 40px;
+}
+
+.filter-btn {
+padding: 12px 25px;
+border: 2px solid #E5E7EB;
+background: white;
+border-radius: 50px;
+cursor: pointer;
+font-weight: 600;
+color: #666;
+transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+background: var(--orange-primary);
+color: white;
+border-color: var(--orange-primary);
+}
+
+/* ====== TOOLS GRID ====== */
+.tools-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 25px;
+margin: 40px 0;
+}
+
+.tool-card {
+background: white;
+border: 1px solid #E5E7EB;
+border-radius: 15px;
+padding: 30px 20px;
+text-align: center;
+text-decoration: none;
+color: var(--gray-dark);
+transition: all 0.3s;
+box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+cursor: pointer;
+position: relative;
+overflow: hidden;
+}
+
+.tool-card:hover {
+transform: translateY(-10px);
+box-shadow: 0 15px 30px rgba(255, 107, 53, 0.15);
+border-color: var(--orange-primary);
+}
+
+.tool-card:hover .tool-icon {
+transform: scale(1.1);
+}
+
+.tool-icon {
+font-size: 50px;
+margin-bottom: 20px;
+transition: transform 0.3s;
+}
+
+.tool-name {
+font-weight: 700;
+font-size: 18px;
+margin-bottom: 10px;
+color: var(--gray-dark);
+}
+
+.tool-description {
+color: #666;
+font-size: 14px;
+margin-bottom: 15px;
+line-height: 1.5;
+}
+
+.tool-category {
+display: inline-block;
+padding: 6px 15px;
+border-radius: 20px;
+font-size: 12px;
+font-weight: 600;
+margin-top: 10px;
+}
+
+.tool-badge {
+position: absolute;
+top: 15px;
+right: 15px;
+background: var(--orange-primary);
+color: white;
+font-size: 11px;
+padding: 4px 10px;
+border-radius: 12px;
+font-weight: 600;
+}
+
+/* Category Colors */
+.category-ai { background: #F3E8FF; color: #7C3AED; }
+.category-convert { background: #FFEDD5; color: #EA580C; }
+.category-edit { background: #DCFCE7; color: #16A34A; }
+.category-optimize { background: #DBEAFE; color: #1D4ED8; }
+.category-extract { background: #FEF3C7; color: #92400E; }
+.category-search { background: #E0E7FF; color: #3730A3; }
+
+/* ====== TOOL DETAILS MODAL ====== */
+.tool-modal {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.8);
+z-index: 2000;
+align-items: center;
+justify-content: center;
+}
+
+.modal-content {
+background: white;
+width: 90%;
+max-width: 600px;
+border-radius: 20px;
+padding: 40px;
+position: relative;
+animation: modalSlide 0.3s ease;
+}
+
+@keyframes modalSlide {
+from { transform: translateY(-50px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+position: absolute;
+top: 20px;
+right: 20px;
+font-size: 30px;
+cursor: pointer;
+color: #999;
+}
+
+.close-modal:hover {
+color: var(--orange-primary);
+}
+
+/* ====== FEATURED TOOLS ====== */
+.featured-section {
+background: linear-gradient(135deg, var(--orange-light) 0%, #FFD9C9 100%);
+border-radius: 20px;
+padding: 50px;
+margin: 60px 0;
+}
+
+.featured-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 30px;
+margin-top: 40px;
+}
+
+.featured-card {
+background: white;
+border-radius: 15px;
+padding: 30px;
+text-align: center;
+box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+/* ====== SEARCH BAR ====== */
+.search-container {
+max-width: 600px;
+margin: 0 auto 40px;
+position: relative;
+}
+
+.search-input {
+width: 100%;
+padding: 18px 25px;
+border: 2px solid #E5E7EB;
+border-radius: 50px;
+font-size: 16px;
+padding-left: 55px;
+transition: all 0.3s;
+}
+
+.search-input:focus {
+border-color: var(--orange-primary);
+outline: none;
+box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.search-icon {
+position: absolute;
+left: 20px;
+top: 50%;
+transform: translateY(-50%);
+color: #999;
+font-size: 20px;
+}
+
+/* ====== FOOTER ====== */
+footer {
+background: var(--gray-dark);
+color: white;
+padding: 60px 20px 30px;
+margin-top: 60px;
+}
+
+.footer-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 40px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.footer-column h3 {
+font-size: 1.3rem;
+margin-bottom: 20px;
+color: white;
+}
+
+.footer-column a {
+color: #D1D5DB;
+text-decoration: none;
+display: block;
+margin-bottom: 12px;
+transition: color 0.3s;
+}
+
+.footer-column a:hover {
+color: var(--orange-primary);
+}
+
+.social-icons {
+display: flex;
+gap: 15px;
+margin-top: 20px;
+}
+
+.social-icons a {
+font-size: 20px;
+background: rgba(255,255,255,0.1);
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.copyright {
+text-align: center;
+margin-top: 50px;
+padding-top: 30px;
+border-top: 1px solid #374151;
+color: #9CA3AF;
+font-size: 14px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+.hero h1 { font-size: 2.5rem; }
+.nav-menu {
+display: none;
+position: absolute;
+top: 70px;
+left: 0;
+width: 100%;
+background: white;
+flex-direction: column;
+padding: 20px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+border-top: 1px solid #FFE5D9;
+}
+.nav-menu.active {
+display: flex;
+}
+.mobile-menu-btn {
+display: block;
+}
+.tools-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.featured-section {
+padding: 30px 20px;
+}
+}
+
+@media (max-width: 480px) {
+.tools-grid {
+grid-template-columns: 1fr;
+}
+.hero { padding: 120px 15px 40px; }
+.hero h1 { font-size: 2rem; }
+.category-filters {
+gap: 10px;
+}
+.filter-btn {
+padding: 10px 20px;
+font-size: 14px;
+}
+}
+</style>
+</head>
+<body>
+<!-- 🔴 HEADER -->
+<header>
+<div class="header-container">
+<a href="index.html" class="logo">
+freeimagetools<span>.in</span>
+</a>
+
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+<i class="fas fa-bars"></i>
+</button>
+
+<nav class="nav-menu">
+<a href="index.html">Home</a>
+<a href="tools.html" class="active">Tools</a>
+<a href="features.html">Features</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+<button class="cta-button">Start Free</button>
+</nav>
+</div>
+</header>
+
+<!-- 🔴 HERO SECTION -->
+<section class="hero">
+<h1>All <span>24+ Tools</span></h1>
+<p>Browse and use our complete collection of free image editing tools</p>
+
+<!-- Search Bar -->
+<div class="search-container">
+<div class="search-icon">
+<i class="fas fa-search"></i>
+</div>
+<input type="text" class="search-input" placeholder="Search for tools (e.g., 'compress', 'AI', 'convert')" id="toolSearch">
+</div>
+
+<!-- Category Filters -->
+<div class="category-filters">
+<button class="filter-btn active" onclick="filterTools('all')">All Tools</button>
+<button class="filter-btn" onclick="filterTools('ai')">AI Tools</button>
+<button class="filter-btn" onclick="filterTools('convert')">Convert</button>
+<button class="filter-btn" onclick="filterTools('edit')">Edit</button>
+<button class="filter-btn" onclick="filterTools('optimize')">Optimize</button>
+<button class="filter-btn" onclick="filterTools('extract')">Extract</button>
+<button class="filter-btn" onclick="filterTools('search')">Search</button>
+</div>
+</section>
+
+<!-- 🔴 MAIN CONTENT -->
+<div class="page-content">
+<!-- All Tools Grid -->
+<div class="tools-grid" id="toolsContainer">
+<!-- Tool cards will be dynamically filtered -->
+</div>
+
+<!-- Featured Tools -->
+<div class="featured-section">
+<h2 style="text-align: center; color: var(--gray-dark); margin-bottom: 20px;">
+<span style="color: var(--orange-primary);">Most Popular</span> Tools
+</h2>
+<p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto;">
+These tools are used by thousands of users every day
+</p>
+
+<div class="featured-grid">
+<div class="featured-card" onclick="openToolModal('AI Image Generator', 'Create stunning images from text descriptions using artificial intelligence.', 'ai')">
+<div style="font-size: 60px; color: var(--orange-primary); margin-bottom: 20px;">🤖</div>
+<h3>AI Image Generator</h3>
+<p style="color: #666; margin: 15px 0;">Create images from text using AI</p>
+<span class="tool-category category-ai">AI TOOLS</span>
+</div>
+
+<div class="featured-card" onclick="openToolModal('Remove Background', 'Automatically remove background from any image with perfect edges.', 'ai')">
+<div style="font-size: 60px; color: var(--orange-primary); margin-bottom: 20px;">✂️</div>
+<h3>Remove Background</h3>
+<p style="color: #666; margin: 15px 0;">Remove background instantly</p>
+<span class="tool-category category-ai">AI TOOLS</span>
+</div>
+
+<div class="featured-card" onclick="openToolModal('Image Compressor', 'Reduce image file size without losing quality.', 'optimize')">
+<div style="font-size: 60px; color: var(--orange-primary); margin-bottom: 20px;">🗜️</div>
+<h3>Image Compressor</h3>
+<p style="color: #666; margin: 15px 0;">Reduce file size up to 80%</p>
+<span class="tool-category category-optimize">OPTIMIZE</span>
+</div>
+</div>
+</div>
+
+<!-- How to Use -->
+<div style="background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-top: 40px;">
+<h2 style="color: var(--orange-primary); margin-bottom: 20px;">How to Use Our Tools</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+<div style="text-align: center;">
+<div style="background: var(--orange-light); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 30px;">1</div>
+<h3>Choose Tool</h3>
+<p>Select from 24+ free image editing tools</p>
+</div>
+
+<div style="text-align: center;">
+<div style="background: var(--orange-light); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 30px;">2</div>
+<h3>Upload Image</h3>
+<p>Drag & drop or click to upload your image</p>
+</div>
+
+<div style="text-align: center;">
+<div style="background: var(--orange-light); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 30px;">3</div>
+<h3>Process & Download</h3>
+<p>Edit and download your processed image</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- 🔴 TOOL DETAILS MODAL -->
+<div class="tool-modal" id="toolModal">
+<div class="modal-content">
+<span class="close-modal" onclick="closeToolModal()">&times;</span>
+<h2 id="modalToolName" style="color: var(--orange-primary); margin-bottom: 20px;"></h2>
+<p id="modalToolDescription" style="color: #666; margin-bottom: 30px; line-height: 1.6;"></p>
+
+<div style="background: var(--orange-light); padding: 20px; border-radius: 12px; margin-bottom: 30px;">
+<h4 style="color: var(--gray-dark); margin-bottom: 10px;">How it works:</h4>
+<ol style="margin-left: 20px; color: #555;">
+<li>Upload your image (JPG, PNG, WEBP, GIF)</li>
+<li>Adjust settings as needed</li>
+<li>Click "Process" button</li>
+<li>Download your edited image</li>
+</ol>
+</div>
+
+<div style="display: flex; gap: 15px; margin-top: 30px;">
+<button class="cta-button" onclick="startUsingTool()">
+<i class="fas fa-play-circle"></i> Start Using
+</button>
+<button style="padding: 12px 28px; border: 2px solid var(--orange-primary); background: white; color: var(--orange-primary); border-radius: 50px; cursor: pointer; font-weight: 600;" onclick="closeToolModal()">
+Close
+</button>
+</div>
+</div>
+</div>
+
+<!-- 🔴 FOOTER -->
+<footer>
+<div class="footer-grid">
+<!-- Column 1 -->
+<div class="footer-column">
+<div class="logo" style="color: white; margin-bottom: 20px;">freeimagetools.in</div>
+<p style="color: #D1D5DB; margin-bottom: 20px;">Free Professional Image Tools for Everyone</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+
+<!-- Column 2 -->
+<div class="footer-column">
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="features.html">Features</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+</div>
+
+<!-- Column 3 -->
+<div class="footer-column">
+<h3>Popular Tools</h3>
+<a href="#" onclick="openToolModal('AI Image Generator', 'Create stunning images from text descriptions using artificial intelligence.', 'ai')">AI Image Generator</a>
+<a href="#" onclick="openToolModal('Remove Background', 'Automatically remove background from any image with perfect edges.', 'ai')">Remove Background</a>
+<a href="#" onclick="openToolModal('Image Converter', 'Convert images between different formats (JPG, PNG, WEBP, GIF).', 'convert')">Image Converter</a>
+<a href="#" onclick="openToolModal('Compress Image', 'Reduce image file size without losing quality.', 'optimize')">Compress Image</a>
+<a href="#" onclick="openToolModal('Resize Image', 'Resize images to any dimensions while maintaining quality.', 'edit')">Resize Image</a>
+<a href="#" onclick="openToolModal('Watermark Remover', 'Remove watermarks from images using AI technology.', 'optimize')">Watermark Remover</a>
+</div>
+
+<!-- Column 4 -->
+<div class="footer-column">
+<h3>Legal</h3>
+<a href="privacy.html">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Cookie Policy</a>
+<a href="#">DMCA</a>
+<a href="#">Refund Policy</a>
+</div>
+</div>
+
+<div class="copyright">
+<p>© 2024 FreeImageTools.in. All rights reserved.</p>
+<p style="margin-top: 10px; color: var(--orange-primary); font-weight: 600;">
+Made with ❤️ in India for the world
+</p>
+</div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+// Tools Data
+const tools = [
+{ id: 1, name: "AI Image Generator", icon: "🤖", category: "ai", description: "Create stunning images from text descriptions" },
+{ id: 2, name: "Remove Background", icon: "✂️", category: "ai", description: "Remove background automatically with AI" },
+{ id: 3, name: "Image to Text", icon: "📝", category: "extract", description: "Extract text from images (OCR)" },
+{ id: 4, name: "Reverse Image Search", icon: "🔍", category: "search", description: "Find similar images online" },
+{ id: 5, name: "Image Converter", icon: "🔄", category: "convert", description: "Convert between formats (JPG, PNG, WEBP)" },
+{ id: 6, name: "Resize Image", icon: "📏", category: "edit", description: "Resize images to any dimensions" },
+{ id: 7, name: "Compress Image", icon: "🗜️", category: "optimize", description: "Reduce file size without quality loss" },
+{ id: 8, name: "AI Image Editor", icon: "🎨", category: "ai", description: "Edit images using AI technology" },
+{ id: 9, name: "Duplicate Finder", icon: "🔎", category: "search", description: "Find duplicate images in your collection" },
+{ id: 10, name: "EXIF Data Viewer", icon: "📊", category: "extract", description: "View image metadata and EXIF data" },
+{ id: 11, name: "Image Search Engine", icon: "🖼️", category: "search", description: "Search for images by content" },
+{ id: 12, name: "Bing Image Creator", icon: "🎭", category: "ai", description: "Generate images using Bing AI" },
+{ id: 13, name: "Image Enhancer", icon: "🌅", category: "optimize", description: "Enhance image quality and sharpness" },
+{ id: 14, name: "Watermark Remover", icon: "🎯", category: "optimize", description: "Remove watermarks from images" },
+{ id: 15, name: "Crop Image", icon: "📐", category: "edit", description: "Crop images to desired aspect ratio" },
+{ id: 16, name: "Rotate Image", icon: "🔄", category: "edit", description: "Rotate and flip images" },
+{ id: 17, name: "PDF to Image", icon: "🖼️", category: "convert", description: "Convert PDF pages to images" },
+{ id: 18, name: "Color Corrector", icon: "🌈", category: "optimize", description: "Adjust colors and white balance" },
+{ id: 19, name: "AI Image Upscaler", icon: "📈", category: "ai", description: "Upscale images without losing quality" },
+{ id: 20, name: "Palette Generator", icon: "🎨", category: "extract", description: "Extract color palette from images" },
+{ id: 21, name: "HEIC to JPG", icon: "🔄", category: "convert", description: "Convert HEIC images to JPG format" },
+{ id: 22, name: "Face Detection", icon: "😊", category: "search", description: "Detect faces in images" },
+{ id: 23, name: "Meme Generator", icon: "😂", category: "edit", description: "Create memes with your images" },
+{ id: 24, name: "Background Changer", icon: "🏞️", category: "ai", description: "Change background of any image" }
+];
+
+// Initialize tools
+function initTools() {
+const container = document.getElementById('toolsContainer');
+container.innerHTML = '';
+
+tools.forEach(tool => {
+const card = document.createElement('div');
+card.className = 'tool-card';
+card.setAttribute('data-category', tool.category);
+card.setAttribute('data-name', tool.name.toLowerCase());
+card.onclick = () => openToolModal(tool.name, tool.description, tool.category);
+
+card.innerHTML = `
+${tool.id <= 5 ? '<span class="tool-badge">POPULAR</span>' : ''}
+<div class="tool-icon">${tool.icon}</div>
+<div class="tool-name">${tool.name}</div>
+<div class="tool-description">${tool.description}</div>
+<span class="tool-category category-${tool.category}">${getCategoryLabel(tool.category)}</span>
+`;
+
+container.appendChild(card);
+});
+}
+
+// Get category label
+function getCategoryLabel(category) {
+const labels = {
+'ai': 'AI TOOLS',
+'convert': 'CONVERT',
+'edit': 'EDIT',
+'optimize': 'OPTIMIZE',
+'extract': 'EXTRACT',
+'search': 'SEARCH'
+};
+return labels[category] || category.toUpperCase();
+}
+
+// Filter tools
+function filterTools(category) {
+// Update active filter button
+document.querySelectorAll('.filter-btn').forEach(btn => {
+btn.classList.remove('active');
+});
+event.target.classList.add('active');
+
+const cards = document.querySelectorAll('.tool-card');
+cards.forEach(card => {
+if (category === 'all' || card.getAttribute('data-category') === category) {
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+}
+
+// Search tools
+document.getElementById('toolSearch').addEventListener('input', function(e) {
+const searchTerm = e.target.value.toLowerCase();
+const cards = document.querySelectorAll('.tool-card');
+
+cards.forEach(card => {
+const name = card.getAttribute('data-name');
+if (name.includes(searchTerm)) {
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+});
+
+// Tool modal functions
+let currentTool = {};
+
+function openToolModal(name, description, category) {
+currentTool = { name, description, category };
+document.getElementById('modalToolName').textContent = name;
+document.getElementById('modalToolDescription').textContent = description;
+document.getElementById('toolModal').style.display = 'flex';
+}
+
+function closeToolModal() {
+document.getElementById('toolModal').style.display = 'none';
+}
+
+function startUsingTool() {
+alert(`Opening "${currentTool.name}" tool...\n\nIn a real implementation, this would load the actual tool interface.`);
+closeToolModal();
+}
+
+// Mobile menu
+function toggleMobileMenu() {
+document.querySelector('.nav-menu').classList.toggle('active');
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+initTools();
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+const menu = document.querySelector('.nav-menu');
+const menuBtn = document.querySelector('.mobile-menu-btn');
+
+if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+menu.classList.remove('active');
+}
+});
+
+// Close modal when clicking outside
+document.getElementById('toolModal').addEventListener('click', function(e) {
+if (e.target === this) {
+closeToolModal();
+}
+});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - FreeImageTools.in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ====== ORANGE THEME CSS ====== */
+:root {
+--orange-primary: #FF6B35;
+--orange-light: #FFE5D9;
+--orange-dark: #E55A2B;
+--gray-dark: #1F2937;
+--gray-light: #F9FAFB;
+--white: #FFFFFF;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+background: linear-gradient(to bottom, #FFFFFF, #FFF7F5);
+color: #333;
+line-height: 1.6;
+min-height: 100vh;
+}
+
+/* ====== HEADER ====== */
+header {
+position: fixed;
+top: 0;
+width: 100%;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-bottom: 1px solid #FFE5D9;
+z-index: 1000;
+padding: 0 20px;
+}
+
+.header-container {
+max-width: 1200px;
+margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+height: 70px;
+}
+
+.logo {
+font-size: 28px;
+font-weight: 800;
+color: var(--orange-primary);
+text-decoration: none;
+}
+
+.logo span {
+color: var(--gray-dark);
+}
+
+.nav-menu {
+display: flex;
+gap: 30px;
+}
+
+.nav-menu a {
+text-decoration: none;
+color: var(--gray-dark);
+font-weight: 600;
+font-size: 16px;
+transition: color 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+color: var(--orange-primary);
+}
+
+.mobile-menu-btn {
+display: none;
+background: none;
+border: none;
+font-size: 24px;
+cursor: pointer;
+color: var(--orange-primary);
+}
+
+.cta-button {
+background: var(--orange-primary);
+color: white;
+border: none;
+padding: 12px 28px;
+border-radius: 50px;
+font-weight: 700;
+font-size: 16px;
+cursor: pointer;
+transition: background 0.3s;
+}
+
+.cta-button:hover {
+background: var(--orange-dark);
+}
+
+/* ====== HERO SECTION ====== */
+.hero {
+padding: 140px 20px 60px;
+text-align: center;
+max-width: 1000px;
+margin: 0 auto;
+}
+
+.hero h1 {
+font-size: 3.5rem;
+color: var(--gray-dark);
+margin-bottom: 20px;
+line-height: 1.2;
+}
+
+.hero h1 span {
+color: var(--orange-primary);
+}
+
+.hero p {
+font-size: 1.3rem;
+color: #666;
+margin-bottom: 40px;
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+/* ====== PAGE CONTENT ====== */
+.page-content {
+padding: 70px 20px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.content-box {
+background: white;
+padding: 50px;
+border-radius: 20px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+margin-bottom: 40px;
+}
+
+.content-box h2 {
+color: var(--orange-primary);
+margin-bottom: 20px;
+font-size: 2.2rem;
+}
+
+.content-box h3 {
+color: var(--gray-dark);
+margin: 25px 0 15px;
+font-size: 1.5rem;
+}
+
+.content-box p {
+margin-bottom: 20px;
+line-height: 1.8;
+color: #555;
+font-size: 1.1rem;
+}
+
+.content-box ul, .content-box ol {
+margin-left: 25px;
+margin-bottom: 25px;
+}
+
+.content-box li {
+margin-bottom: 12px;
+color: #555;
+font-size: 1.1rem;
+}
+
+/* ====== TEAM SECTION ====== */
+.team-section {
+margin-top: 60px;
+}
+
+.team-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 30px;
+margin-top: 30px;
+}
+
+.team-card {
+background: white;
+border-radius: 15px;
+overflow: hidden;
+box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+transition: transform 0.3s;
+}
+
+.team-card:hover {
+transform: translateY(-10px);
+}
+
+.team-img {
+height: 200px;
+background: linear-gradient(135deg, var(--orange-light) 0%, #FFD9C9 100%);
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 80px;
+color: var(--orange-primary);
+}
+
+.team-info {
+padding: 25px;
+}
+
+.team-info h4 {
+font-size: 1.4rem;
+color: var(--gray-dark);
+margin-bottom: 5px;
+}
+
+.team-info .role {
+color: var(--orange-primary);
+font-weight: 600;
+margin-bottom: 15px;
+font-size: 1rem;
+}
+
+/* ====== TIMELINE ====== */
+.timeline {
+margin-top: 60px;
+position: relative;
+}
+
+.timeline:before {
+content: '';
+position: absolute;
+left: 30px;
+top: 0;
+bottom: 0;
+width: 4px;
+background: var(--orange-light);
+}
+
+.timeline-item {
+position: relative;
+padding-left: 80px;
+margin-bottom: 40px;
+}
+
+.timeline-item:before {
+content: '';
+position: absolute;
+left: 23px;
+top: 0;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: var(--orange-primary);
+border: 4px solid white;
+box-shadow: 0 0 0 4px var(--orange-light);
+}
+
+.timeline-year {
+color: var(--orange-primary);
+font-weight: 800;
+font-size: 1.2rem;
+margin-bottom: 10px;
+}
+
+/* ====== STATS ====== */
+.stats {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 30px;
+text-align: center;
+margin: 60px 0;
+padding: 40px;
+background: linear-gradient(135deg, var(--orange-light) 0%, #FFD9C9 100%);
+border-radius: 20px;
+}
+
+.stat-number {
+font-size: 3.5rem;
+font-weight: 800;
+color: var(--orange-primary);
+line-height: 1;
+}
+
+.stat-label {
+color: var(--gray-dark);
+font-weight: 600;
+margin-top: 10px;
+font-size: 1.1rem;
+}
+
+/* ====== VALUES SECTION ====== */
+.values-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 30px;
+margin-top: 40px;
+}
+
+.value-card {
+background: white;
+padding: 30px;
+border-radius: 15px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+text-align: center;
+border-top: 4px solid var(--orange-primary);
+}
+
+.value-icon {
+font-size: 40px;
+color: var(--orange-primary);
+margin-bottom: 20px;
+}
+
+/* ====== FOOTER ====== */
+footer {
+background: var(--gray-dark);
+color: white;
+padding: 60px 20px 30px;
+margin-top: 60px;
+}
+
+.footer-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 40px;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+.footer-column h3 {
+font-size: 1.3rem;
+margin-bottom: 20px;
+color: white;
+}
+
+.footer-column a {
+color: #D1D5DB;
+text-decoration: none;
+display: block;
+margin-bottom: 12px;
+transition: color 0.3s;
+}
+
+.footer-column a:hover {
+color: var(--orange-primary);
+}
+
+.social-icons {
+display: flex;
+gap: 15px;
+margin-top: 20px;
+}
+
+.social-icons a {
+font-size: 20px;
+background: rgba(255,255,255,0.1);
+width: 40px;
+height: 40px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.copyright {
+text-align: center;
+margin-top: 50px;
+padding-top: 30px;
+border-top: 1px solid #374151;
+color: #9CA3AF;
+font-size: 14px;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+.hero h1 { font-size: 2.5rem; }
+.nav-menu {
+display: none;
+position: absolute;
+top: 70px;
+left: 0;
+width: 100%;
+background: white;
+flex-direction: column;
+padding: 20px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+border-top: 1px solid #FFE5D9;
+}
+.nav-menu.active {
+display: flex;
+}
+.mobile-menu-btn {
+display: block;
+}
+.content-box {
+padding: 30px 20px;
+}
+.timeline:before {
+left: 20px;
+}
+.timeline-item {
+padding-left: 60px;
+}
+.timeline-item:before {
+left: 13px;
+}
+}
+
+@media (max-width: 480px) {
+.hero { padding: 120px 15px 40px; }
+.hero h1 { font-size: 2rem; }
+.content-box { padding: 25px 15px; }
+.stats { padding: 30px 15px; }
+}
+</style>
+</head>
+<body>
+<!-- 🔴 HEADER -->
+<header>
+<div class="header-container">
+<a href="index.html" class="logo">
+freeimagetools<span>.in</span>
+</a>
+
+<button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+<i class="fas fa-bars"></i>
+</button>
+
+<nav class="nav-menu">
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="features.html">Features</a>
+<a href="about.html" class="active">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+<button class="cta-button">Start Free</button>
+</nav>
+</div>
+</header>
+
+<!-- 🔴 HERO SECTION -->
+<section class="hero">
+<h1>About <span>FreeImageTools.in</span></h1>
+<p>Learn about our mission, team, and journey to make image editing accessible to everyone</p>
+</section>
+
+<!-- 🔴 MAIN CONTENT -->
+<div class="page-content">
+<!-- Our Mission -->
+<div class="content-box">
+<h2>Our Mission</h2>
+<p>We're building <strong style="color: var(--orange-primary);">India's most comprehensive FREE image editing platform</strong>.
+Our mission is to provide professional-grade tools to everyone - from students and bloggers to business owners and digital marketers.</p>
+
+<p>In today's digital world, everyone needs to edit images - for social media, business presentations,
+educational content, or personal projects. But professional software is often expensive, complex, and requires technical skills.</p>
+
+<p>That's why we created FreeImageTools.in - to democratize image editing by giving everyone access to powerful
+tools that are completely free, easy to use, and accessible from any device.</p>
+
+<div class="stats">
+<div>
+<div class="stat-number">50,000+</div>
+<div class="stat-label">Happy Users</div>
+</div>
+<div>
+<div class="stat-number">1M+</div>
+<div class="stat-label">Images Processed</div>
+</div>
+<div>
+<div class="stat-number">24+</div>
+<div class="stat-label">Free Tools</div>
+</div>
+<div>
+<div class="stat-number">99.9%</div>
+<div class="stat-label">Uptime</div>
+</div>
+</div>
+</div>
+
+<!-- Our Story -->
+<div class="content-box">
+<h2>Our Story</h2>
+
+<div class="timeline">
+<div class="timeline-item">
+<div class="timeline-year">2022 - The Beginning</div>
+<p>It all started when our founder, Rajesh, needed to quickly remove a background from a product photo for his small business.
+He found that most online tools either had watermarks, were too expensive, or required registration.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-year">2023 - First Tools Launch</div>
+<p>We launched with just 5 basic tools: Image Converter, Compressor, Resizer, Cropper, and Background Remover.
+Within months, we had 10,000+ users who loved our simple, free approach.</p>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-year">2024 - Full Platform</div>
+<p>Today, we offer 24+ professional tools powered by AI technology. We've helped over 50,000 users
+process more than 1 million images completely free of charge.</p>
+</div>
+</div>
+</div>
+
+<!-- Our Team -->
+<div class="content-box team-section">
+<h2>Meet Our Team</h2>
+<p>We're a small but passionate team of developers and designers who believe in making technology accessible to everyone.</p>
+
+<div class="team-grid">
+<div class="team-card">
+<div class="team-img">👨‍💻</div>
+<div class="team-info">
+<h4>Rajesh Kumar</h4>
+<div class="role">Founder & Lead Developer</div>
+<p>Former Google engineer with 8+ years of experience in image processing and AI technology.</p>
+</div>
+</div>
+
+<div class="team-card">
+<div class="team-img">👩‍🎨</div>
+<div class="team-info">
+<h4>Priya Sharma</h4>
+<div class="role">UI/UX Designer</div>
+<p>Design expert focused on creating intuitive interfaces that anyone can use without training.</p>
+</div>
+</div>
+
+<div class="team-card">
+<div class="team-img">👨‍🔬</div>
+<div class="team-info">
+<h4>Amit Patel</h4>
+<div class="role">Backend Engineer</div>
+<p>Infrastructure specialist ensuring our tools are fast, reliable, and secure for all users.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Our Values -->
+<div class="content-box">
+<h2>Our Core Values</h2>
+
+<div class="values-grid">
+<div class="value-card">
+<div class="value-icon">🔓</div>
+<h3>Accessibility</h3>
+<p>We believe everyone should have access to professional tools regardless of their technical skills or budget.</p>
+</div>
+
+<div class="value-card">
+<div class="value-icon">🔒</div>
+<h3>Privacy First</h3>
+<p>Your images are yours alone. We never store them permanently or use them for any other purpose.</p>
+</div>
+
+<div class="value-card">
+<div class="value-icon">⚡</div>
+<h3>Simplicity</h3>
+<p>Complex tools made simple. No confusing options, just straightforward image editing.</p>
+</div>
+
+<div class="value-card">
+<div class="value-icon">🚀</div>
+<h3>Innovation</h3>
+<p>We constantly update our tools with the latest AI technology to provide the best results.</p>
+</div>
+</div>
+</div>
+
+<!-- Technology -->
+<div class="content-box">
+<h2>Technology We Use</h2>
+<p>We combine cutting-edge technology with simple interfaces:</p>
+
+<h3>🤖 Artificial Intelligence</h3>
+<ul>
+<li>Advanced neural networks for image recognition</li>
+<li>Machine learning algorithms for automatic enhancement</li>
+<li>AI-powered background removal with perfect edges</li>
+<li>Smart upscaling without quality loss</li>
+</ul>
+
+<h3>☁️ Cloud Infrastructure</h3>
+<ul>
+<li>Distributed processing for instant results</li>
+<li>Automatic scaling to handle thousands of users</li>
+<li>Global CDN for fast access worldwide</li>
+<li>99.9% uptime guarantee</li>
+</ul>
+
+<h3>🔐 Security & Privacy</h3>
+<ul>
+<li>End-to-end encryption for all uploads</li>
+<li>Automatic file deletion after processing</li>
+<li>No personal data collection</li>
+<li>GDPR compliant infrastructure</li>
+</ul>
+</div>
+
+<!-- Future Plans -->
+<div class="content-box">
+<h2>Future Roadmap</h2>
+<p>We're just getting started! Here's what's coming next:</p>
+
+<h3>🎯 2024 Q2 - More AI Tools</h3>
+<ul>
+<li>AI Image Restoration for old photos</li>
+<li>Smart Object Removal from images</li>
+<li>AI-powered Photo Retouching</li>
+<li>Batch processing for all tools</li>
+</ul>
+
+<h3>🎯 2024 Q3 - Mobile Apps</h3>
+<ul>
+<li>Native iOS and Android apps</li>
+<li>Offline processing capabilities</li>
+<li>Camera integration for direct editing</li>
+<li>Cloud sync across devices</li>
+</ul>
+
+<h3>🎯 2024 Q4 - Advanced Features</h3>
+<ul>
+<li>Team collaboration features</li>
+<li>API access for developers</li>
+<li>Custom tool creation</li>
+<li>Advanced analytics dashboard</li>
+</ul>
+</div>
+</div>
+
+<!-- 🔴 FOOTER -->
+<footer>
+<div class="footer-grid">
+<!-- Column 1 -->
+<div class="footer-column">
+<div class="logo" style="color: white; margin-bottom: 20px;">freeimagetools.in</div>
+<p style="color: #D1D5DB; margin-bottom: 20px;">Free Professional Image Tools for Everyone</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+
+<!-- Column 2 -->
+<div class="footer-column">
+<h3>Quick Links</h3>
+<a href="index.html">Home</a>
+<a href="tools.html">Tools</a>
+<a href="features.html">Features</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy</a>
+</div>
+
+<!-- Column 3 -->
+<div class="footer-column">
+<h3>Popular Tools</h3>
+<a href="#">AI Image Generator</a>
+<a href="#">Remove Background</a>
+<a href="#">Image Converter</a>
+<a href="#">Compress Image</a>
+<a href="#">Resize Image</a>
+<a href="#">Watermark Remover</a>
+</div>
+
+<!-- Column 4 -->
+<div class="footer-column">
+<h3>Legal</h3>
+<a href="privacy.html">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Cookie Policy</a>
+<a href="#">DMCA</a>
+<a href="#">Refund Policy</a>
+</div>
+</div>
+
+<div class="copyright">
+<p>© 2024 FreeImageTools.in. All rights reserved.</p>
+<p style="margin-top: 10px; color: var(--orange-primary); font-weight: 600;">
+Made with ❤️ in India for the world
+</p>
+</div>
+</footer>
+
+<script>
+// Toggle mobile menu
+function toggleMobileMenu() {
+document.querySelector('.nav-menu').classList.toggle('active');
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+const menu = document.querySelector('.nav-menu');
+const menuBtn = document.querySelector('.mobile-menu-btn');
+
+if (!menu.contains(event.target) && !menuBtn.contains(event.target)) {
+menu.classList.remove('active');
+}
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if(targetId === '#') return;
+
+const targetElement = document.querySelector(targetId);
+if(targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+</script>
+</body>
+</html>
